@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Raja",
+    "place": "Madurai",
+    "date": "30-06-2025",
+    "amount": 15000,
+    "quantity": [5, 7, 8],
+    "rate": [100, 200, 120],
+    "totalQuantity": 20,
+    "advance": 3000,
+    "isPaid": true
+  },
+  {
+    "name": "Kumar",
+    "place": "Chennai",
+    "date": "01-07-2025",
+    "amount": 20000,
+    "quantity": [6, 8, 10],
+    "rate": [120, 150, 180],
+    "totalQuantity": 24,
+    "advance": 4000,
+    "isPaid": false
+  },
+  {
+    "name": "Arun",
+    "place": "Coimbatore",
+    "date": "02-07-2025",
+    "amount": 18000,
+    "quantity": [4, 6, 7],
+    "rate": [110, 190, 130],
+    "totalQuantity": 17,
+    "advance": 3500,
+    "isPaid": true
+  },
+  {
+    "name": "Priya",
+    "place": "Trichy",
+    "date": "03-07-2025",
+    "amount": 25000,
+    "quantity": [8, 9, 11],
+    "rate": [150, 200, 170],
+    "totalQuantity": 28,
+    "advance": 5000,
+    "isPaid": false
+  },
+  {
+    "name": "Ganesh",
+    "place": "Salem",
+    "date": "04-07-2025",
+    "amount": 22000,
+    "quantity": [10, 8, 9],
+    "rate": [140, 180, 150],
+    "totalQuantity": 27,
+    "advance": 4500,
+    "isPaid": true
+  },
+  {
+    "name": "Mohan",
+    "place": "Erode",
+    "date": "05-07-2025",
+    "amount": 12000,
+    "quantity": [3, 4, 6],
+    "rate": [100, 130, 110],
+    "totalQuantity": 13,
+    "advance": 2500,
+    "isPaid": false
+  },
+  {
+    "name": "Divya",
+    "place": "Thanjavur",
+    "date": "06-07-2025",
+    "amount": 30000,
+    "quantity": [12, 11, 10],
+    "rate": [250, 200, 300],
+    "totalQuantity": 33,
+    "advance": 6000,
+    "isPaid": true
+  },
+  {
+    "name": "Suresh",
+    "place": "Karur",
+    "date": "07-07-2025",
+    "amount": 17000,
+    "quantity": [5, 6, 7],
+    "rate": [150, 200, 170],
+    "totalQuantity": 18,
+    "advance": 4000,
+    "isPaid": false
+  },
+  {
+    "name": "Lakshmi",
+    "place": "Nagercoil",
+    "date": "08-07-2025",
+    "amount": 19000,
+    "quantity": [4, 8, 9],
+    "rate": [140, 210, 190],
+    "totalQuantity": 21,
+    "advance": 3800,
+    "isPaid": true
+  },
+  {
+    "name": "Rajesh",
+    "place": "Tirunelveli",
+    "date": "09-07-2025",
+    "amount": 16000,
+    "quantity": [5, 7, 6],
+    "rate": [130, 150, 140],
+    "totalQuantity": 18,
+    "advance": 3200,
+    "isPaid": false
+  }
+]

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farmer Bill Details</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f8e9;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #33691e;
+      margin-bottom: 2rem;
+    }
+
+    .bill-section {
+      max-width: 800px;
+      background: white;
+      padding: 2rem;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .info {
+      margin-bottom: 1.5rem;
+    }
+
+    .info div {
+      margin: 0.4rem 0;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      padding: 0.8rem;
+      text-align: center;
+      border: 1px solid #ccc;
+    }
+
+    .totals {
+      margin-top: 1.5rem;
+    }
+
+    .totals div {
+      margin: 0.5rem 0;
+      font-weight: bold;
+    }
+
+    .highlight {
+      color: #d84315;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Farmer Bill Details</h1>
+
+  <div class="bill-section">
+    <div class="info">
+      <div>Name: <span id="farmerName">Kumar</span></div>
+      <div>Place: <span id="farmerPlace">Salem</span></div>
+    </div>
+
+    <table id="billTable">
+      <thead>
+        <tr>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Rows will be inserted by JS -->
+      </tbody>
+    </table>
+
+    <div class="totals" id="totals">
+      <!-- Totals will appear here -->
+    </div>
+  </div>
+
+  <script>
+    // Sample billing data
+    const billData = [
+      { price: 30, quantity: 20 },
+      { price: 25, quantity: 15 },
+      { price: 40, quantity: 10 }
+    ];
+
+    const tableBody = document.querySelector('#billTable tbody');
+    const totalsDiv = document.getElementById('totals');
+
+    let totalAmount = 0;
+    let totalQuantity = 0;
+
+    billData.forEach(item => {
+      const row = document.createElement('tr');
+      const rowTotal = item.price * item.quantity;
+      totalAmount += rowTotal;
+      totalQuantity += item.quantity;
+
+      row.innerHTML = `
+        <td>${item.price}</td>
+        <td>${item.quantity}</td>
+        <td>${rowTotal}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+
+    const commission = Math.floor(totalAmount / 10);
+    const labourWages = 5 * totalQuantity;
+    const advance = 100;
+    const remaining = totalAmount - (commission + labourWages + advance);
+
+    totalsDiv.innerHTML = `
+      <div>Total Quantity: ${totalQuantity}</div>
+      <div>Total Amount: ₹${totalAmount}</div>
+      <div>Commission (10%): ₹${commission}</div>
+      <div>Labour Wages (₹5 x ${totalQuantity}): ₹${labourWages}</div>
+      <div>Advance Paid: ₹${advance}</div>
+      <div class="highlight">Remaining Amount: ₹${remaining}</div>
+    `;
+  </script>
+
+</body>
+</html>
+    

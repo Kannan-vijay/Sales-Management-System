@@ -1,0 +1,128 @@
+import {Fragment, useEffect, useState} from 'react'
+import { useParams } from 'react-router-dom'
+import TransactionCard from '../components/transactionCard';
+
+export default function SellerPaymentDetails(){
+    const [sellerdetails,setSellerdetails]=useState(null);
+    const [transactions,setTransactions]=useState([]);
+    const {id} = useParams();
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URI}/sellers/${id}`)
+        .then(res => res.json())
+        .then(res => {
+            setSellerdetails(res);
+            setTransactions(res.transactions || []);
+        });
+    },[id]);
+    if(!sellerdetails){
+        return <div>Loading..</div>
+    }
+    return (<Fragment>
+                <style>{`
+                           body {
+                            margin: 0;
+                            font-family: 'Segoe UI', sans-serif;
+                            background-color: #f1f8e9;
+                            color: #333;
+                            }
+
+                            header {
+                            background-color: #2e7d32;
+                            color: white;
+                            padding: 1rem;
+                            text-align: center;
+                            font-size: 1.8rem;
+                            font-weight: bold;
+                            }
+
+                            .container {
+                            max-width: 900px;
+                            margin: 2rem auto;
+                            padding: 0 1rem;
+                            }
+
+                            .summary {
+                            display: flex;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            gap: 1rem;
+                            margin-bottom: 2rem;
+                            }
+
+                            .summary-box {
+                            flex: 1;
+                            background-color: #ffffff;
+                            border-radius: 12px;
+                            padding: 1.5rem;
+                            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                            min-width: 250px;
+                            text-align: center;
+                            }
+
+                            .summary-box h3 {
+                            margin-bottom: 0.5rem;
+                            font-size: 1.2rem;
+                            color: #2e7d32;
+                            }
+
+                            .summary-box p {
+                            font-size: 1.5rem;
+                            font-weight: bold;
+                            color: #333;
+                            }
+
+                            .transaction {
+                            background-color: #fff;
+                            border-left: 8px solid #ccc;
+                            border-radius: 10px;
+                            padding: 1rem 1.5rem;
+                            margin-bottom: 1rem;
+                            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                            transition: 0.3s;
+                            }
+
+                            .transaction.payment {
+                            border-left-color: #43a047; /* green */
+                            background-color: #e8f5e9;
+                            }
+
+                            .transaction.bill {
+                            border-left-color: #ef6c00; /* orange */
+                            background-color: #fff3e0;
+                            }
+
+                            .transaction h4 {
+                            margin-bottom: 0.3rem;
+                            font-size: 1.1rem;
+                            }
+
+                            .transaction p {
+                            margin: 0.2rem 0;
+                            color: #555;
+                            }
+            `}</style>
+                    <header>Seller Transaction Details</header>
+
+                    <div class="container">
+                    <div class="summary">
+                        <div class="summary-box">
+                        <h3>Total Transaction Amount</h3>
+                        <p>₹{sellerdetails.totalAmount}</p>
+                        </div>
+                        <div class="summary-box">
+                        <h3>Total Paid Amount</h3>
+                        <p>₹{sellerdetails.paidAmount}</p>
+                        </div>
+                        <div class="summary-box">
+                        <h3>Remaining Amount</h3>
+                        <p>₹{sellerdetails.totalAmount - sellerdetails.paidAmount}</p>
+                        </div>
+                    </div>
+
+                    
+                    {transactions.map(transaction => <TransactionCard transaction={transaction}/>)}
+                    
+                    </div>
+            </Fragment>
+    );
+}

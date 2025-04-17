@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seller Details</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f8e9;
+      color: #333;
+    }
+
+    header {
+      background-color: #388e3c;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .seller-card {
+      background-color: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .seller-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .seller-name {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+
+    .seller-place {
+      font-size: 1.1rem;
+      margin-top: 0.4rem;
+      color: #555;
+    }
+
+    .credit-section {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .credit-section input {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      flex: 1;
+      font-size: 1rem;
+    }
+
+    .credit-section button {
+      background-color: #43a047;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .credit-section button:hover {
+      background-color: #388e3c;
+    }
+
+    .credit-display {
+      margin-top: 0.3rem;
+      font-size: 0.95rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>Seller Details</header>
+
+  <div class="container">
+    <div class="seller-card">
+      <div class="seller-name">Ravi Kumar</div>
+      <div class="seller-place">Coimbatore</div>
+      <div class="credit-display" id="credit-ravi">Current Credit: ₹0</div>
+      <div class="credit-section">
+        <input type="number" id="input-ravi" placeholder="Enter new credit" />
+        <button onclick="updateCredit('ravi')">Update</button>
+      </div>
+    </div>
+
+    <div class="seller-card">
+      <div class="seller-name">Anjali Verma</div>
+      <div class="seller-place">Madurai</div>
+      <div class="credit-display" id="credit-anjali">Current Credit: ₹0</div>
+      <div class="credit-section">
+        <input type="number" id="input-anjali" placeholder="Enter new credit" />
+        <button onclick="updateCredit('anjali')">Update</button>
+      </div>
+    </div>
+
+    <div class="seller-card">
+      <div class="seller-name">Karthik Raj</div>
+      <div class="seller-place">Salem</div>
+      <div class="credit-display" id="credit-karthik">Current Credit: ₹0</div>
+      <div class="credit-section">
+        <input type="number" id="input-karthik" placeholder="Enter new credit" />
+        <button onclick="updateCredit('karthik')">Update</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const credits = {
+      ravi: 0,
+      anjali: 0,
+      karthik: 0
+    };
+
+    function updateCredit(sellerId) {
+      const input = document.getElementById(`input-${sellerId}`);
+      const value = parseFloat(input.value);
+      if (!isNaN(value)) {
+        credits[sellerId] = value;
+        document.getElementById(`credit-${sellerId}`).innerText = `Current Credit: ₹${value}`;
+        input.value = "";
+      } else {
+        alert("Please enter a valid number.");
+      }
+    }
+  </script>
+</body>
+</html>

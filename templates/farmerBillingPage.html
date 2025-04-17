@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farmer Billing</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f1f8e9;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #33691e;
+      margin-bottom: 2rem;
+    }
+
+    .form-section, .bill-section {
+      max-width: 800px;
+      background: white;
+      padding: 2rem;
+      margin: auto;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin: 1rem 0 0.3rem;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .price-rows {
+      margin-top: 1rem;
+    }
+
+    .price-rows div {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .price-rows input {
+      flex: 1;
+    }
+
+    button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      background-color: #388e3c;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #2e7d32;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .totals {
+      margin-top: 1.5rem;
+    }
+
+    .totals div {
+      margin: 0.5rem 0;
+      font-weight: bold;
+    }
+
+    .highlight {
+      color: #d84315;
+      font-size: 1.2rem;
+    }
+    .update{
+      margin-top: 20px;
+      background-color: #1e88e5;
+    }
+  </style>
+</head>
+<body>
+  <h1>Farmer Billing</h1>
+
+  <div class="form-section">
+    <label>Farmer Name</label>
+    <input type="text" placeholder="Enter Farmer Name">
+
+    <label>Place</label>
+    <input type="text" placeholder="Enter Place">
+
+    <label>Total Quantity</label>
+    <input type="number" placeholder="Enter Total Quantity">
+
+    <div class="price-rows" id="priceRows">
+      <div>
+        <input type="number" placeholder="Price (Amount)">
+        <input type="number" placeholder="Quantity">
+      </div>
+    </div>
+
+    <button onclick="addRow()">+ Add Price & Quantity</button>
+
+    <label>Advance Amount</label>
+    <input type="number" placeholder="Enter Advance Amount">
+
+    <button onclick="generateBill()">Generate Bill</button>
+  </div>
+
+  <div class="bill-section" id="billSection" style="display: none;">
+    <h2>Billing Details</h2>
+    <table id="billTable">
+      <thead>
+        <tr>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="totals" id="totals">
+      <!-- Totals will appear here -->
+    </div>
+    <button onClick={updateDatabase} class="update">
+      Update Database
+    </button>
+  </div>
+
+  <script>
+    function addRow() {
+      const row = document.createElement('div');
+      row.innerHTML = `
+        <input type="number" placeholder="Price (Amount)">
+        <input type="number" placeholder="Quantity">
+      `;
+      document.getElementById('priceRows').appendChild(row);
+    }
+
+    function generateBill() {
+      const prices = document.querySelectorAll('#priceRows input:nth-child(1)');
+      const quantities = document.querySelectorAll('#priceRows input:nth-child(2)');
+      const tableBody = document.querySelector('#billTable tbody');
+      const totalsDiv = document.getElementById('totals');
+      const totalQty = parseInt(document.querySelector('input[placeholder="Enter Total Quantity"]').value);
+      const advance = parseInt(document.querySelector('input[placeholder="Enter Advance Amount"]').value) || 0;
+
+      let totalAmount = 0;
+      let labourWages = 5 * totalQty;
+      tableBody.innerHTML = "";
+
+      for (let i = 0; i < prices.length; i++) {
+        let price = parseInt(prices[i].value);
+        let qty = parseInt(quantities[i].value);
+        if (!isNaN(price) && !isNaN(qty)) {
+          let total = price * qty;
+          totalAmount += total;
+          const row = `<tr><td>${price}</td><td>${qty}</td><td>${total}</td></tr>`;
+          tableBody.innerHTML += row;
+        }
+      }
+
+      const commission = Math.floor(totalAmount / 10);
+      const remaining = totalAmount - (commission + labourWages + advance);
+
+      totalsDiv.innerHTML = `
+        <div>Total Amount: ₹${totalAmount}</div>
+        <div>Commission (10%): ₹${commission}</div>
+        <div>Labour Wages (₹5 x ${totalQty}): ₹${labourWages}</div>
+        <div>Advance Paid: ₹${advance}</div>
+        <div class="highlight">Remaining Amount: ₹${remaining}</div>
+      `;
+
+      document.getElementById('billSection').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+[
+    {
+      "name": "kannan",
+      "place": "thiruppachethi",
+      "totalAmount": 15000,
+      "paidAmount": 10000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "15-01-2025", "amount": 5000 },
+        { "detail": "Bill - Amount", "date": "16-01-2025", "amount": 7000 },
+        { "detail": "Payment Received", "date": "17-01-2025", "amount": 3000 },
+        { "detail": "Bill - Amount", "date": "18-01-2025", "amount": 8000 },
+        { "detail": "Payment Received", "date": "19-01-2025", "amount": 10000 }
+      ]
+    },
+    {
+      "name": "arun",
+      "place": "madurai",
+      "totalAmount": 18000,
+      "paidAmount": 12000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "15-02-2025", "amount": 6000 },
+        { "detail": "Bill - Amount", "date": "16-02-2025", "amount": 8000 },
+        { "detail": "Payment Received", "date": "17-02-2025", "amount": 5000 },
+        { "detail": "Bill - Amount", "date": "18-02-2025", "amount": 7000 },
+        { "detail": "Payment Received", "date": "19-02-2025", "amount": 10000 }
+      ]
+    },
+    {
+      "name": "suresh",
+      "place": "coimbatore",
+      "totalAmount": 20000,
+      "paidAmount": 14000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "01-03-2025", "amount": 8000 },
+        { "detail": "Bill - Amount", "date": "02-03-2025", "amount": 10000 },
+        { "detail": "Payment Received", "date": "03-03-2025", "amount": 6000 },
+        { "detail": "Bill - Amount", "date": "04-03-2025", "amount": 9000 },
+        { "detail": "Payment Received", "date": "05-03-2025", "amount": 7000 }
+      ]
+    },
+    {
+      "name": "lakshmi",
+      "place": "trichy",
+      "totalAmount": 17000,
+      "paidAmount": 12000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "05-04-2025", "amount": 6000 },
+        { "detail": "Bill - Amount", "date": "06-04-2025", "amount": 7000 },
+        { "detail": "Payment Received", "date": "07-04-2025", "amount": 5000 },
+        { "detail": "Bill - Amount", "date": "08-04-2025", "amount": 8000 },
+        { "detail": "Payment Received", "date": "09-04-2025", "amount": 9000 }
+      ]
+    },
+    {
+      "name": "ganesh",
+      "place": "salem",
+      "totalAmount": 22000,
+      "paidAmount": 16000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "15-05-2025", "amount": 9000 },
+        { "detail": "Bill - Amount", "date": "16-05-2025", "amount": 12000 },
+        { "detail": "Payment Received", "date": "17-05-2025", "amount": 8000 },
+        { "detail": "Bill - Amount", "date": "18-05-2025", "amount": 15000 },
+        { "detail": "Payment Received", "date": "19-05-2025", "amount": 10000 }
+      ]
+    },
+    {
+      "name": "mohan",
+      "place": "erode",
+      "totalAmount": 25000,
+      "paidAmount": 20000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "01-06-2025", "amount": 10000 },
+        { "detail": "Bill - Amount", "date": "02-06-2025", "amount": 14000 },
+        { "detail": "Payment Received", "date": "03-06-2025", "amount": 7000 },
+        { "detail": "Bill - Amount", "date": "04-06-2025", "amount": 16000 },
+        { "detail": "Payment Received", "date": "05-06-2025", "amount": 12000 }
+      ]
+    },
+    {
+      "name": "divya",
+      "place": "thanjavur",
+      "totalAmount": 30000,
+      "paidAmount": 25000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "15-07-2025", "amount": 10000 },
+        { "detail": "Bill - Amount", "date": "16-07-2025", "amount": 15000 },
+        { "detail": "Payment Received", "date": "17-07-2025", "amount": 8000 },
+        { "detail": "Bill - Amount", "date": "18-07-2025", "amount": 16000 },
+        { "detail": "Payment Received", "date": "19-07-2025", "amount": 12000 }
+      ]
+    },
+    {
+      "name": "raja",
+      "place": "karur",
+      "totalAmount": 28000,
+      "paidAmount": 20000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "15-08-2025", "amount": 12000 },
+        { "detail": "Bill - Amount", "date": "16-08-2025", "amount": 14000 },
+        { "detail": "Payment Received", "date": "17-08-2025", "amount": 7000 },
+        { "detail": "Bill - Amount", "date": "18-08-2025", "amount": 16000 },
+        { "detail": "Payment Received", "date": "19-08-2025", "amount": 10000 }
+      ]
+    },
+    {
+      "name": "priya",
+      "place": "nagercoil",
+      "totalAmount": 24000,
+      "paidAmount": 18000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "01-09-2025", "amount": 9000 },
+        { "detail": "Bill - Amount", "date": "02-09-2025", "amount": 12000 },
+        { "detail": "Payment Received", "date": "03-09-2025", "amount": 8000 },
+        { "detail": "Bill - Amount", "date": "04-09-2025", "amount": 11000 },
+        { "detail": "Payment Received", "date": "05-09-2025", "amount": 10000 }
+      ]
+    },
+    {
+      "name": "raj",
+      "place": "tirunelveli",
+      "totalAmount": 26000,
+      "paidAmount": 22000,
+      "transactions": [
+        { "detail": "Payment Received", "date": "15-10-2025", "amount": 11000 },
+        { "detail": "Bill - Amount", "date": "16-10-2025", "amount": 13000 },
+        { "detail": "Payment Received", "date": "17-10-2025", "amount": 9000 },
+        { "detail": "Bill - Amount", "date": "18-10-2025", "amount": 15000 },
+        { "detail": "Payment Received", "date": "19-10-2025", "amount": 12000 }
+      ]
+    }
+  ]
+  

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Admin & Accounter</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e8f5e9;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #2e7d32;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group select {
+      background-color: #fff;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 0.9rem;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="ownerDashBoard.html" method="POST">
+      <div class="form-group">
+        <label for="role">Login as:</label>
+        <select id="role" name="role" required>
+          <option value="">Select Role</option>
+          <option value="admin">Admin</option>
+          <option value="accounter">Accounter</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required />
+      </div>
+
+      <button class="login-btn" type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
