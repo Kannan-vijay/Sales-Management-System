@@ -72,7 +72,7 @@ exports.updateSellerPayment = async (req, res) => {
   }
 };
 
-//Update Sellet Balance
+//Update Seller Balance
 exports.updateSellerBalance = async (req, res) => {
   const {name , place} = req.body;
   try {

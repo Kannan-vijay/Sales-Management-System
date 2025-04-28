@@ -55,6 +55,7 @@ exports.getFarmerByDate = async (req, res) => {
   }
 };
 
+//Get Farmer By Name
 exports.getFarmerByName = async (req, res) => {
   try {
     const name = req.query.name;
