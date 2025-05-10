@@ -68,6 +68,29 @@
     .login-btn:hover {
       background-color: #388e3c;
     }
+
+    .extra-btns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      width: 48%;
+      padding: 0.8rem;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #1b5e20;
+    }
   </style>
 </head>
 <body>
@@ -94,6 +117,11 @@
       </div>
 
       <button class="login-btn" type="submit">Login</button>
+
+      <div class="extra-btns">
+        <button class="btn" onclick="location.href='sellerDashboard.html'">Seller</button>
+        <button class="btn" onclick="location.href='farmerDashboard.html'">Farmer</button>
+      </div>
     </form>
   </div>
 </body>

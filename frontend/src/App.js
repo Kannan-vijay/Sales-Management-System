@@ -1,6 +1,5 @@
 
 import './App.css';
-import Dashboard from './pages/dashboard';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import OwnerDashboard from './pages/ownerdashboard';
 import AccounterDashboard from './pages/accounterdashboard';
@@ -13,13 +12,14 @@ import SellerCreditDetails from './pages/sellerCreditDetails';
 import FarmerBillPendingDetails from './pages/farmerBillPendingDetails';
 import FarmerBilling from './pages/farmerBilling';
 import SellerBilling from './pages/sellerBilling';
+import Login from './pages/login page/login';
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path = '/' element = {<Dashboard />} />
+          <Route path = '/' element = {<Login />} />
           <Route path = '/ownerdashboard' element ={<OwnerDashboard/>}/>
           <Route path = '/shopDetails' element ={<ShopDetails />}/>
           <Route path = '/sellerDetails' element ={<SellerCreditDetails />}/>
