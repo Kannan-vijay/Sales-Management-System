@@ -1,5 +1,5 @@
 import {Fragment, useState} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login(){
     const [role,setRole] = useState("");
@@ -7,8 +7,17 @@ export default function Login(){
     const [password,setPassword] = useState("");
     const navigate = useNavigate();
     const [notification, setNotification] = useState('');
+    const [visible,setVisible] = useState(false);
 
     function submissionHandler(){
+        if(role === "Seller"){
+            navigate("/sellers");
+            return;
+        }
+        else if(role === "Farmer"){
+            navigate("/farmers");
+            return;
+        }
         fetch(`${process.env.REACT_APP_API_URI}/users/login`, {
                 method: "POST",
                 headers: {
@@ -48,6 +57,16 @@ export default function Login(){
                 setTimeout(() => setNotification(''), 3000);
             });
         }
+
+    function loginVisibleOrNot(e){
+        setRole(e.target.value);
+        if(e.target.value === "Admin" || e.target.value === "Accounter"){
+            setVisible(true);
+        }
+        else{
+            setVisible(false);
+        }
+    }
     return <Fragment>
         <style>{`
                     body {
@@ -171,35 +190,42 @@ export default function Login(){
                         <form action={submissionHandler} method="POST">
                         <div className="form-group">
                             <label for="role">Login as:</label>
-                            <select id="role" name="role" required onChange={(e)=>setRole(e.target.value)}>
+                            <select id="role" name="role" required onChange={loginVisibleOrNot}>
                             <option value="">Select Role</option>
                             <option value="Admin">Admin</option>
                             <option value="Accounter">Accounter</option>
+                            <option value="Seller">Seller</option>
+                            <option value="Farmer">Farmer</option>
                             </select>
                         </div>
 
-                        <div className="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" 
-                            onChange={(e)=>setuserName(e.target.value)}
-                            placeholder="Enter your username" required />
-                        </div>
+                        {visible && (
+                            <>
+                                <div className="form-group">
+                                <label htmlFor="username">Username:</label>
+                                <input type="text" id="username" name="username" 
+                                onChange={(e) => setuserName(e.target.value)}
+                                placeholder="Enter your username" required />
+                                </div>
 
-                        <div className="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" 
-                            onChange={(e) => setPassword(e.target.value)}
-                            placeholder="Enter your password" required />
-                        </div>
+                                <div className="form-group">
+                                    <label htmlFor="password">Password:</label>
+                                    <input type="password" id="password" name="password" 
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="Enter your password" required />
+                                </div>
+                            </>
+                        )}
+
 
                         <button className="login-btn" type="submit">Login</button>
 
-                            <Link to = "/sellers">
+                            {/* <Link to = "/sellers">
                                 <button className="btn" >Seller</button>
                             </Link>
                             <Link to = "/farmers" >
                                 <button className="btn">Farmer</button>
-                            </Link>
+                            </Link> */}
                             
                         </form>
                     </div>
